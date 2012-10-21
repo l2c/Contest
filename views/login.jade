@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  form(method="post", action="/login")
+    label Name or email 
+    input(type="text", name="username")
+    br
+
+    label Password 
+    input(type="text", name="password")
+    br
+
+    input(type="hidden", name="_csrf", value=_csrf)
+
+    input(type="submit", value="Login")

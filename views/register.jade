@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  form(method="post", action="/register")
+    label Name 
+    input(type="text", name="name")
+    br
+
+    label Surname 
+    input(type="text", name="surname")
+    br
+
+    label Password 
+    input(type="text", name="password")
+    br
+
+    label Website 
+    input(type="text", name="website")
+    br
+
+    label Mail 
+    input(type="text", name="mail")
+    br
+    input(type="hidden", name="_csrf", value=_csrf)
+
+    input(type="submit", value="Register!")

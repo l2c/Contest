@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  table
+    each doc in user.documents
+      tr
+        td= doc.title
+        td
+          a(href="/download/"+doc._id) Download
+
+  a(href="/write") Go to write
