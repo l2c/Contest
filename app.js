@@ -40,6 +40,7 @@ app.get('/panel', [ensureLoggedIn('/'), common.render('panel.jade')]);
 app.get('/panel/new', [ensureLoggedIn('/'), common.render('write.jade')]);
 app.get('/panel/list', [ensureLoggedIn('/'), common.render('list.jade')]);
 app.get('/download/:id', [ensureLoggedIn('/'), routes.downloadId]);
+app.get('/logout', routes.logout);
 
 app.post('/register', routes.register);
 app.post('/login', passport.authenticate('local', { successReturnToOrRedirect: '/panel', failureRedirect: '/' }));

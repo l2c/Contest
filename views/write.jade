@@ -12,20 +12,32 @@ block content
           a.whiteit(href='/panel/list') 
             i.icon-reorder.whiteit
             |List
+        li
+          a.whiteit(href='/logout') 
+            i.icon-signout.whiteit
+            |Logout
 
   .span8
     .well.noradius
-      form.form-horizontal
+      form.form-horizontal#write(method="post")
         .control-group
             label.control-label(for='inputEmail') Title
             .controls
-              input#inputEmail(type='text', placeholder="Yeah, i'm a title!")
+              input#inputEmail(type='text', placeholder="Yeah, i'm a title!", name="title")
           .control-group
             label.control-label(for='inputPassword') Content
             .controls
-              textarea(placeholder="Lorem ipsum...")
+              textarea(placeholder="Lorem ipsum...", name="content")
+          .control-group
+            label.control-label(for='inputPassword') Markup
+            .controls
+              select(name="ext")
+                option(name="txt") Plain text
+                option(name="md") Markdown
           .control-group
             .controls
-              button.btn(type='submit') Save
+              input(type="hidden", name="_csrf", value=_csrf)
+              button.btn(type='submit', style="margin-right: 5px", onclick="document.getElementById('write').action = '/save'" ) Save 
+              button.btn(type='submit', onclick="document.getElementById('write').action = '/download'") Download
 
   

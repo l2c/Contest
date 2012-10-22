@@ -12,7 +12,22 @@ block content
           a.whiteit(href='/panel/list') 
             i.icon-reorder.whiteit
             |List
+        li
+          a.whiteit(href='/logout') 
+            i.icon-signout.whiteit
+            |Logout
 
   .span8
     .well.noradius
-      
+      table.table.table-hover
+        thead
+            tr
+              th Title
+              th Download
+          tbody
+            each doc in user.documents
+              tr
+                td #{doc.title}
+                td 
+                  a(href="/download/"+doc._id) 
+                    i.icon-download-alt

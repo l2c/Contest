@@ -82,7 +82,7 @@ routes.save = function(req, res) {
       ext = req.body.ext || 'txt';
 
   if (!content || !title)
-    return res.redirect('/badparams');
+    return res.redirect('/error/params');
 
   var doc = new models.Document({
     title: title,
@@ -110,9 +110,10 @@ routes.download = function(req, res) {
       content = req.body.content,
       ext = req.body.ext || 'txt',
       parsed = common.parse(ext, title, content);
+      
 
   if (!title || !content)
-    return res.redirect('/badparams');
+    return res.redirect('/error/params');
 
   res.writeHead(200, {
     'Pragma': 'public',
@@ -159,4 +160,9 @@ routes.downloadId = function(req, res) {
 
     res.end(content);
   });
+};
+
+routes.logout = function(req, res) {
+  req.logOut();
+  res.redirect('/');
 };
