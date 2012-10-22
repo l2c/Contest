@@ -1,0 +1,118 @@
+* {
+	color: #112233;
+	font-family: 'Titillium Web', sans-serif;
+}
+
+body, html {
+	padding: 0;
+	margin: 0;
+	height: 100%;
+}
+
+body {
+	background-color: #fff;
+}
+
+/* NAVBAR */
+
+.navbar {
+	margin: 0;
+}
+
+.navbar-inner {
+	box-shadow: none;
+	background-image: none;
+	background-color: #112233;
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.navbar-inner .nav li a, .navbar-inner .brand {
+	text-shadow: none;
+	color: #fff;
+}
+
+.navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus {
+	background-color: rgba(0,0,0,0.05);
+	color: #fff;
+}
+
+.navbar .nav li a:hover {
+	color: #fff;
+	text-decoration: underline;
+}
+
+/* WELL */
+
+.big-top {
+	background-color: #EEEEEE;
+	width: 100%;
+	min-height: 150px;
+	border: 0;
+	border-top: 1px solid rgba(255,255,255,0.1);
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+
+	background-image: url("img/texture.png");
+
+	margin: 0;
+	padding: 0;
+}
+
+.well {
+}
+/* MISC */
+
+.noradius {
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+}
+
+.manifesto {
+	color: #112233;
+	font-size: 50px;
+	font-weight: bold;
+
+	font-family: 'Lobster Two', cursive;
+}
+
+@media (max-width: 480px) { 
+
+	.manifesto {
+		font-size: 30px;
+	}
+
+}
+
+.controls input {
+	width: 75%;
+}
+
+.control-group label {
+	width: 25%;
+}
+
+input {
+	height: auto !important;
+}
+
+.menuit {
+	background-color: #112233;
+}
+
+.menuit ul li a, .nav-list > li > a, .nav-list .nav-header {
+	text-shadow: none;
+}
+
+.whiteit {
+	color: #fff;
+}
+
+.menuit .nav-list > li > a:hover {
+	background-color: rgba(255,255,255,0.1);
+	color: #fff;
+}
+
+textarea {
+	width: 75%;
+	height: 30%;
+}

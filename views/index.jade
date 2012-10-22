@@ -1,5 +1,57 @@
 extends layout
 
+block manifesto 
+  .big-top.well.noradius(style='text-align: center;')
+    div(style='margin-top: 60px;')
+      span.manifesto Save your text easy!
+  div(style='width: 100%; height: 1px; background-color: rgba(255,255,255,0.1);')
+
 block content
-  h1= title
-  p Welcome to #{title}
+  .span6
+    h1
+      i.icon-lock
+      | Login
+    .well.noradius
+      form.form-horizontal(method="post", action="/login")
+        .control-group
+          label.control-label(for='inputEmail') Email
+          .controls
+            input#inputEmail(type='text', placeholder='Email', name="username")
+        .control-group
+          label.control-label(for='inputPassword') Password
+          .controls
+            input#inputPassword(type='password', placeholder='Password', name="password")
+        .control-group
+          .controls
+            input(type="hidden", name="_csrf", value=_csrf)
+            button.btn(type='submit') Sign in
+  .span6
+    h1
+      i.icon-signin
+      | Register
+    .well.noradius
+      form.form-horizontal(method="post", action="/register")
+        .control-group
+          label.control-label(for='inputEmail') Name
+          .controls
+            input#inputEmail(type='text', placeholder='Megan', name="name")
+        .control-group
+          label.control-label(for='inputEmail') Surname
+          .controls
+            input#inputEmail(type='text', placeholder='Fox', name="surname")
+        .control-group
+          label.control-label(for='inputEmail') E-mail
+          .controls
+            input#inputEmail(type='text', placeholder='megan.fox@vagina.com', name="mail")
+        .control-group
+          label.control-label(for='inputPassword') Password
+          .controls
+            input#inputPassword(type='password', placeholder='Password', name="password")
+        .control-group
+          label.control-label(for='inputEmail') Website
+          .controls
+            input#inputEmail(type='text', placeholder='www.meganfox.com', name="website")
+        .control-group
+          .controls
+            input(type="hidden", name="_csrf", value=_csrf)
+            button.btn(type='submit') Sign up

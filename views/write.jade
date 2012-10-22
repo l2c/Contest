@@ -1,22 +1,31 @@
 extends layout
 
 block content
-  form(method="post", action="/download", id="write")
-    div(style="text-align: center")
-      label Title 
-      input(type="text", name="title")
-      br
-      textarea(name="content")
-      br
-      div#controls
-        label Plaintext
-        input(type="radio", name="ext", value="txt")
-        br
-        label Markdown (it will be converted to html)
-        input(type="radio", name="ext", value="md")
-        br
+  .span3
+    .well.noradius.menuit
+      ul.nav.nav-list
+        li
+          a.whiteit(href='/panel/new') 
+            i.icon-plus.whiteit
+            | New
+        li
+          a.whiteit(href='/panel/list') 
+            i.icon-reorder.whiteit
+            |List
 
-      input(type="hidden", name="_csrf", value=_csrf)
-      input(type="submit", value="Download", onclick="document.getElementById('write').action = '/download'")
-      br
-      input(type="submit", value="Save", onclick="document.getElementById('write').action = '/save'")
+  .span8
+    .well.noradius
+      form.form-horizontal
+        .control-group
+            label.control-label(for='inputEmail') Title
+            .controls
+              input#inputEmail(type='text', placeholder="Yeah, i'm a title!")
+          .control-group
+            label.control-label(for='inputPassword') Content
+            .controls
+              textarea(placeholder="Lorem ipsum...")
+          .control-group
+            .controls
+              button.btn(type='submit') Save
+
+  

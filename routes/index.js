@@ -24,7 +24,7 @@ routes.register = function(req, res) {
       sha512 = crypto.createHash('sha512');
 
   if (fields.length !== Object.keys(doc).length || !req.body.password)
-    return res.redirect('/badparams');
+    return res.redirect('/error/params');
 
   doc.salt = utile.randomString(4);
   doc.password = sha512.update(doc.salt + req.body.password).digest('hex');

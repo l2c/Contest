@@ -33,19 +33,18 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-app.get('/', common.redirect('/register'));
-app.get('/register', common.render('register.jade'));
+app.get('/', common.render('index.jade'));
 app.get('/error/:type', common.render('error.jade'));
-app.get('/login', common.render('login.jade'));
 app.get('/activate/:mail/:key', routes.activate);
-app.get('/write', [ensureLoggedIn('/login'), common.render('write.jade')]);
-app.get('/panel', [ensureLoggedIn('/login'), common.render('panel.jade')]);
-app.get('/download/:id', [ensureLoggedIn('/login'), routes.downloadId]);
+app.get('/panel', [ensureLoggedIn('/'), common.render('panel.jade')]);
+app.get('/panel/new', [ensureLoggedIn('/'), common.render('write.jade')]);
+app.get('/panel/list', [ensureLoggedIn('/'), common.render('list.jade')]);
+app.get('/download/:id', [ensureLoggedIn('/'), routes.downloadId]);
 
 app.post('/register', routes.register);
-app.post('/login', passport.authenticate('local', { successReturnToOrRedirect: '/panel', failureRedirect: '/login' }));
-app.post('/download', [ensureLoggedIn('/login'), routes.download]);
-app.post('/save', [ensureLoggedIn('/login'), routes.save]);
+app.post('/login', passport.authenticate('local', { successReturnToOrRedirect: '/panel', failureRedirect: '/' }));
+app.post('/download', [ensureLoggedIn('/'), routes.download]);
+app.post('/save', [ensureLoggedIn('/'), routes.save]);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
