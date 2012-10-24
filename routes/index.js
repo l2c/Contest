@@ -115,6 +115,8 @@ routes.download = function(req, res) {
   if (!title || !content)
     return res.redirect('/error/params');
 
+  console.log(parsed.content.length);
+
   res.writeHead(200, {
     'Pragma': 'public',
     'Content-Type': 'application/octet-stream',
@@ -122,8 +124,6 @@ routes.download = function(req, res) {
     'Content-Disposition': 'attachment; filename="' + parsed.filename + '"',
     'Content-Transfer-Encoding': 'binary'
   });
-
-  res.end(parsed.content);
 };
 
 routes.downloadId = function(req, res) {
@@ -153,7 +153,7 @@ routes.downloadId = function(req, res) {
     res.writeHead(200, {
       'Pragma': 'public',
       'Content-Type': 'application/octet-stream',
-      'Content-Length': doc.text.length,
+      'Content-Length': content.length,
       'Content-Disposition': 'attachment; filename="' + filename + '"',
       'Content-Transfer-Encoding': 'binary'
     });
